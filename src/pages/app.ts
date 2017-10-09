@@ -1,7 +1,9 @@
 import * as b from 'bobril';
+import * as m from 'bobril-m';
 import * as BasicLayout from '../components/lBasicLayout/lib';
 import * as LMainContent from '../components/lMainContent/lib';
 import * as AppBar from '../components/appBar/lib';
+import * as ButtonMenu from '../components/buttonMenu/lib';
 import * as router from './router';
 import * as Image from '../components/image/lib';
 import * as assets from '../assets/assets';
@@ -22,45 +24,32 @@ const app = b.createComponent<IData>({
 
         me.children = [
             BasicLayout.create({
-                header: AppBar.create({
-                    contentWidth: 1000,
-                    leftChildren: [
-                        Image.create({
-                            asset: assets.bobrilLogoInverse,
-                            width: 64,
-                            height: 64
-                        }),
-                        AppBar.Button.create({
-                            label: 'BOBRIL',
-                            isActive: actualPageId === router.home,
-                            action: () => {
-                                b.runTransition(b.createRedirectPush(router.home));
-                            }
-                        }),
-                        AppBar.Button.create({
-                            label: 'GUIDES',
-                            isActive: actualPageId === router.guides,
-                            action: () => {
-                                b.runTransition(b.createRedirectPush(router.guides));
-                            }
-                        }),
-                        AppBar.Button.create({
-                            label: 'DOCS',
-                            isActive: actualPageId === router.documentation,
-                            action: () => {
-                                b.runTransition(b.createRedirectPush(router.documentation));
-                            }
-                        })
-                    ],
-                    rightChildren: [
-                        AppBar.Button.create({
-                            label: 'GitHub',
-                            action: () => {
-                                window.open('https://github.com/Bobris/Bobril')
-                            }
-                        })
-                    ]
-                }),
+                header: 
+                    ButtonMenu.create({
+                        children: [
+                            ButtonMenu.Item.create({
+                                label: 'BOBRIL',
+                                isActive: actualPageId === router.home,
+                                action: () => {
+                                    b.runTransition(b.createRedirectPush(router.home));
+                                }
+                            }),
+                            ButtonMenu.Item.create({
+                                label: 'GUIDES',
+                                isActive: actualPageId === router.guides,
+                                action: () => {
+                                    b.runTransition(b.createRedirectPush(router.guides));
+                                }
+                            }),
+                            ButtonMenu.Item.create({
+                                label: 'DOCS',
+                                isActive: actualPageId === router.documentation,
+                                action: () => {
+                                    b.runTransition(b.createRedirectPush(router.documentation));
+                                }
+                            })
+                        ]
+                    }),
                 content: [
                     LMainContent.create({
                         content: [
