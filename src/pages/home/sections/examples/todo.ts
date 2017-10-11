@@ -47,7 +47,7 @@ export const create = b.createComponent<never>({
                     value: ctx.newTask.description || '',
                     onChange: (value: string) => {
                         ctx.newTask.description = value;
-                        b.invalidate(ctx);
+                        //b.invalidate(ctx);
                     }
                 }),
                 m.Button({
@@ -59,7 +59,7 @@ export const create = b.createComponent<never>({
                         if (!isActualTaskEmpty(ctx)) {
                             ctx.tasks = [ctx.newTask, ...ctx.tasks];
                             ctx.newTask = createTask('', false);
-                            b.invalidate(ctx);
+                            //b.invalidate(ctx);
                         }
                     }
                 })

@@ -18,26 +18,12 @@ export const create = b.createComponent<IData>({
             [
                 Image.create({
                     asset: assets.bobrilLogo,
-                    width: 300,
-                    height: 284,
+                    width: 200,
+                    height: 188,
                     style: {
                         margin: 'auto'
                     }
-                }),
-                // TODO
-                // b.styledDiv(
-                //     m.Button({
-                //         children: 'GET STARTED',
-                //         type: m.ButtonType.Raised,
-                //         action: () => {
-                //             d.onGetStartedClick();
-                //         }
-                //     }),
-                //     {
-                //         marginBottom: 8
-                //     }
-                // )
-            ],
+                })],
             {
                 marginTop: -24
             }

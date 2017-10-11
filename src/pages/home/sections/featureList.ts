@@ -1,6 +1,7 @@
 import * as b from 'bobril';
+import * as m from 'bobril-m';
 import * as Label from '../../../components/label/lib';
-import * as List from '../../../components/list/lib';
+import * as Paragraph from '../../../components/paragraph/lib';
 
 interface IData {
 }
@@ -12,41 +13,25 @@ interface IContext extends b.IBobrilCtx {
 export const create = b.createComponent<IData>({
     render(ctx: IContext, me: b.IBobrilNode){
         me.children = b.styledDiv([
-                Label.create({
-                    label: 'Features',
-                    size: Label.LabelSize.Display2,
-                    style: {
-                        fontSize: 20,
-                        fontWeight: 600,
-                        textAlign: 'left'
-                    }
-                }),
-                List.create({
-                    items: [
-                        {
-                            children: 'Component Oriented Framework'
-                        },
-                        {
-                            children: 'Small'
-                        },
-                        {
-                            children: 'Fast Virtual DOM diffing'
-                        },
-                        {
-                            children: 'Media detection'
-                        },
-                        {
-                            children: 'Normalization of events'
-                        },
-                        {
-                            children: '... and a lot of more'
-                        }
-                    ]
-                }),
-                {
-                    textAlign: 'left'
+            Label.create({
+                label: 'Bobril',
+                size: Label.LabelSize.Display2,
+                style: {
+                    fontSize: 30,
+                    fontWeight: 400,
+                    textAlign: 'center'
                 }
-            ]
-        );
+            }),
+            Paragraph.create(`is a component-oriented framework for creating web applications, inspired by ReactJs (Virtual DOM,
+                components with state) and Mithril (small size, more complete framework).`
+            ),
+            b.styledDiv([
+                m.Button({}, 'Get Started'),
+                m.Button({}, 'Download'),
+            ]),
+            {
+                textAlign: 'center'
+            }
+        ]);
     }
 });

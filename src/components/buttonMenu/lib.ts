@@ -20,7 +20,7 @@ export const create = b.createComponent<IComponentData>({
         me.children = b.styledDiv([
             createButton(ctx),
             ...createMenuItems(ctx)
-        ], getMenuStyle());
+        ], menuStyle);
         b.style(me, { width: 200 });
     }
 });
@@ -45,10 +45,8 @@ function createMenuItems(ctx: IComponentCtx): b.IBobrilNode[] {
     : [];
 }
 
-function getMenuStyle(): string {
-    return b.styleDef({
-        margin: 16,
-        color: m.primary1Color,
-        backgroundColor: m.canvasColor
-    });
-}
+let menuStyle = b.styleDef({
+    margin: 16,
+    color: m.blue100,
+    backgroundColor: m.white
+});

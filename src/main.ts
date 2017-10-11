@@ -1,11 +1,12 @@
 import * as b from 'bobril';
+import * as m from 'bobril-m';
 import * as router from './pages/router';
 import app from './pages/app';
 import home from './pages/home/page';
 import documentation from './pages/documentation/page';
 import guides from './pages/guides/page';
 
-loadGithubMarkdownStyles();
+//loadGithubMarkdownStyles();
 
 b.routes(
     b.route({handler: app}, [
@@ -15,6 +16,13 @@ b.routes(
         b.routeDefault({handler: home})
     ])
 );
+
+b.selectorStyleDef("body", {
+    margin: 0,
+    backgroundColor: m.blue100,
+    fontFamily: m.fontFamily,
+    color: m.blue100
+});
 
 function loadGithubMarkdownStyles() {
     const markdownCss = b.asset('../node_modules/github-markdown-css/github-markdown.css');
